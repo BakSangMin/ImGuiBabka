@@ -1,0 +1,4 @@
+.scene files:
+    Text files that contian text for each 'scene' such as the title screen and text between each player chosen option.
+.config files:
+    Text files that contain configuration settings

@@ -1,0 +1,98 @@
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <imgui.h>
+#include <imgui_internal.h>
+#include <settingsScreen.h>
+#include "global.h"
+
+
+//Declarations
+bool TSOpened = true;
+bool SettingsOpenedFromTitle = false;
+bool TitleScreenCurrentlyOpen = TSOpened;
+
+
+char* stringToChar(std::string str) {
+    // Allocate memory for the char array
+    char* charArray = new char[str.length() + 1];
+    // Copy the string content to the char array
+    std::strcpy(charArray, str.c_str());
+    return charArray;
+}
+
+void OpenTitleScreen() {
+    TSOpened = true;
+}
+void CloseTitleScreen() {
+    TSOpened = false;
+}
+void DisplayTitleButtons() {
+    ImVec2 winSize(ImGui::GetWindowSize());
+    ImVec2 StartBtnSize(300, 70);
+    ImVec2 StartBtnPos;
+    StartBtnPos.x = (winSize.x - StartBtnSize.x) / 2;
+    StartBtnPos.y = 75;
+    ImGui::SetCursorPos(StartBtnPos);
+    if (ImGui::Button("New Game", StartBtnSize)) {
+
+    }
+    StartBtnPos.y = StartBtnPos.y + 100;
+    ImGui::SetCursorPos(StartBtnPos);
+    if (ImGui::Button("Continue", StartBtnSize)) {
+
+    }
+    StartBtnPos.y = StartBtnPos.y + 100;
+    ImGui::SetCursorPos(StartBtnPos);
+    if (ImGui::Button("Settings", StartBtnSize)) {
+        TSOpened = false;
+        SettingsOpenedFromTitle = true;
+        OpenSettingsScreen();
+    }
+}
+void ReadTitleScreen() {
+    ImGuiViewport* viewport = ImGui::GetMainViewport();
+    ImVec2 vpPos(viewport->Pos);
+    ImVec2 vpSize(viewport->Size);
+    vpPos.y = vpPos.y + 19;
+    ImGui::SetNextWindowPos(vpPos);
+    ImGui::SetNextWindowSize(vpSize);
+
+    if (TSOpened) {
+        ImGui::Begin("Start Menu", &TSOpened,
+            ImGuiWindowFlags_NoDocking |
+            ImGuiWindowFlags_NoResize |
+            ImGuiWindowFlags_NoCollapse |
+            ImGuiWindowFlags_NoMove |
+            ImGuiWindowFlags_NoTitleBar);
+
+        std::string titleScreenOut;
+        std::ifstream titleScreen("C:\\Users\\cdowd\\source\\repos\\Babushkas Babka Bakery\\examples\\example_win32_directx11\\Scenes\\Title Screen.scene");
+        try {
+            if (titleScreen.is_open() == false) {
+                throw 101;
+            }
+
+        }
+        catch (int thrown) {
+            std::cout << "Error" << thrown;
+        }
+
+            getline(titleScreen, titleScreenOut);
+            char* charTSO = stringToChar(titleScreenOut);
+            ImGui::TextWrapped(charTSO);
+
+            delete[] charTSO;
+ 
+        DisplayTitleButtons();
+ 
+        if (titleScreen.is_open() == true) {
+            titleScreen.close();
+        }
+        ImGui::End();
+    }
+}
+
+
+
+

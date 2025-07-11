@@ -7,6 +7,15 @@
     <Filter Include="sources">
       <UniqueIdentifier>{08e36723-ce4f-4cff-9662-c40801cf1acf}</UniqueIdentifier>
     </Filter>
+    <Filter Include="sources\SettingsMenu">
+      <UniqueIdentifier>{957cd945-83bd-4ada-866b-f6c8e8212526}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sources\LoadSaveMenu">
+      <UniqueIdentifier>{454e9301-871b-4903-9bb4-649f3498ed94}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sources\TitlePage">
+      <UniqueIdentifier>{5101e1d1-bb7c-4b13-afd4-c432c839ebd5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\imconfig.h">
@@ -23,6 +32,15 @@
     </ClInclude>
     <ClInclude Include="..\..\backends\imgui_impl_dx11.h">
       <Filter>sources</Filter>
+    </ClInclude>
+    <ClInclude Include="MainMenuBar.h">
+      <Filter>sources</Filter>
+    </ClInclude>
+    <ClInclude Include="titleScreen.h">
+      <Filter>sources\TitlePage</Filter>
+    </ClInclude>
+    <ClInclude Include="settingsScreen.h">
+      <Filter>sources\SettingsMenu</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -50,6 +68,18 @@
     <ClCompile Include="..\..\imgui_tables.cpp">
       <Filter>imgui</Filter>
     </ClCompile>
+    <ClCompile Include="MainMenuBar.cpp">
+      <Filter>sources</Filter>
+    </ClCompile>
+    <ClCompile Include="TitleBar.cpp">
+      <Filter>sources</Filter>
+    </ClCompile>
+    <ClCompile Include="titleScreen.cpp">
+      <Filter>sources\TitlePage</Filter>
+    </ClCompile>
+    <ClCompile Include="settingsScreen.cpp">
+      <Filter>sources\SettingsMenu</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\README.txt" />
@@ -59,5 +89,19 @@
     <None Include="..\..\misc\debuggers\imgui.natstepfilter">
       <Filter>imgui</Filter>
     </None>
+    <None Include="Scenes\Title Screen.scene">
+      <Filter>sources\TitlePage</Filter>
+    </None>
+    <None Include="Scenes\Settings Screen.scene">
+      <Filter>sources\SettingsMenu</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ExceptionsList.txt">
+      <Filter>sources</Filter>
+    </Text>
+    <Text Include="FileTypeNaming.txt">
+      <Filter>sources</Filter>
+    </Text>
   </ItemGroup>
 </Project>
