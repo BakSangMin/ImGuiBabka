@@ -1,3 +1,4 @@
 # ImGuiBabka
 ImGuiBabka
-A very silly proejct - Currently in the stages of messing around with ImGui
+A very silly project - Currently in the stages of messing around with ImGui
+I can't figure out how to merge these two folders so I'm not going to.  The other branch is the one with everything in it.
