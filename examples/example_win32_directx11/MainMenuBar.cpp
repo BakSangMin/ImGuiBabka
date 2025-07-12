@@ -7,24 +7,20 @@
 #include "MainMenuBar.h"
 #include "settingsScreen.h"
 #include "global.h"
-//Declairations
+#include "AchievementsScreen.h"
 
 void MainMenuBar() {
     if (ImGui::BeginMainMenuBar()) {
         if (ImGui::BeginMenu("Menu")) {
             if(ImGui::MenuItem("Back to Title", "This will be a shortcut")) {
                 OpenTitleScreen();
-                if (SettingsOpenedFromTitle == true) {
-                    CloseSettingsScreen();
-                }
             }
             if (ImGui::MenuItem("Open Settings", "This will be a shortcut")) {
                 OpenSettingsScreen();
-                if (TitleScreenCurrentlyOpen == true) {
-                    CloseTitleScreen();
-                }
             }
-
+            if (ImGui::MenuItem("Open Achievements", "Shortcut")) {
+                OpenAchievementsScreen();
+            }
             ImGui::EndMenu();
         }
         ImGui::EndMainMenuBar();

@@ -15,6 +15,7 @@
 #include "global.h"
 #include "settingsScreen.h"
 #include "titleScreen.h"
+#include "AchievementsScreen.h"
 
 // Data
 static ID3D11Device*            g_pd3dDevice = nullptr;
@@ -153,8 +154,11 @@ int main(int, char**)
 
 
 
+
+        // Read only, not open.
         ReadTitleScreen();
         ReadSettingsScreen();
+        ReadAchievementsScreen();
 
 
 

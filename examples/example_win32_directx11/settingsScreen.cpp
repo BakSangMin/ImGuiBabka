@@ -6,19 +6,20 @@
 #include <imgui_internal.h>
 #include "global.h"
 
-
 bool SSOpened = false;
-bool SSCloseClick = false;
 
 void OpenSettingsScreen() {
     SSOpened = true;
+    CurrentWindow = 2;
+    CloseNoncurrentWindow();
 }
 void CloseSettingsScreen() {
     SSOpened = false;
 }
+
 void ReadSettingsScreen() {
     if (SSOpened) {
-        ImGui::Begin("Start Menu", &SSOpened,
+        ImGui::Begin("Settings", &SSOpened,
             ImGuiWindowFlags_NoDocking |
             ImGuiWindowFlags_NoResize |
             ImGuiWindowFlags_NoCollapse |
@@ -36,7 +37,16 @@ void ReadSettingsScreen() {
             std::cout << "Error" << thrown;
         }
 
+        FileLineOut = 1;
+        ReadFile(settingsScreen, nullptr);
+        if (ImGui::Button("Button1")) {
 
+        }
+        FileLineOut = 2;
+        ReadFile(settingsScreen, nullptr);
+        if (ImGui::Button("Button2")) {
+
+        }
 
 
         if (settingsScreen.is_open() == true) {
@@ -44,9 +54,7 @@ void ReadSettingsScreen() {
         }
         ImGui::End();
     }
-
-
-    if (SettingsOpenedFromTitle == true && SSOpened == false) {
+    if (CurrentWindow == 2 && !SSOpened) {
         OpenTitleScreen();
     }
 }

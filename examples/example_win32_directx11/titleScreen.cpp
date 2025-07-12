@@ -5,23 +5,23 @@
 #include <imgui_internal.h>
 #include <settingsScreen.h>
 #include "global.h"
+#include "AchievementsScreen.h"
 
 //Declarations
 bool TSOpened = true;
-bool SettingsOpenedFromTitle = false;
-bool TitleScreenCurrentlyOpen = TSOpened;
 
-
-char* stringToChar(std::string str) {
-    // Allocate memory for the char array
-    char* charArray = new char[str.length() + 1];
-    // Copy the string content to the char array
-    std::strcpy(charArray, str.c_str());
-    return charArray;
-}
+//char* stringToChar(std::string str) {
+//    // Allocate memory for the char array
+//    char* charArray = new char[str.length() + 1];
+//    // Copy the string content to the char array
+//    std::strcpy(charArray, str.c_str());
+//    return charArray;
+//}
 
 void OpenTitleScreen() {
     TSOpened = true;
+    CurrentWindow = 1;
+    CloseNoncurrentWindow();
 }
 void CloseTitleScreen() {
     TSOpened = false;
@@ -44,16 +44,14 @@ void DisplayTitleButtons() {
     StartBtnPos.y = StartBtnPos.y + 100;
     ImGui::SetCursorPos(StartBtnPos);
     if (ImGui::Button("Settings", StartBtnSize)) {
-        TSOpened = false;
-        SettingsOpenedFromTitle = true;
         OpenSettingsScreen();
     }
     StartBtnPos.y = StartBtnPos.y + 100/1.3f;
     ImGui::SetCursorPos(StartBtnPos);
     StartBtnSize.x = StartBtnSize.x / 2.05f;
     StartBtnSize.y = StartBtnSize.y / 2;
-    if (ImGui::Button("Button", StartBtnSize)) {
-        
+    if (ImGui::Button("Achievements", StartBtnSize)) {
+        OpenAchievementsScreen();
     }
     ImGui::SameLine(0.0f, 10.0f);
     StartBtnPos.x = StartBtnPos.x + (300 - StartBtnSize.x);
@@ -62,6 +60,7 @@ void DisplayTitleButtons() {
         exit(0);
     }
 }
+
 void ReadTitleScreen() {
     ImGuiViewport* viewport = ImGui::GetMainViewport();
     ImVec2 vpPos(viewport->Pos);
@@ -77,7 +76,6 @@ void ReadTitleScreen() {
             ImGuiWindowFlags_NoCollapse |
             ImGuiWindowFlags_NoMove |
             ImGuiWindowFlags_NoTitleBar);
-
         std::string titleScreenOut;
         std::ifstream titleScreen("Scenes\\Title Screen.scene");
         try {
@@ -90,12 +88,10 @@ void ReadTitleScreen() {
             std::cout << "Error" << thrown;
         }
 
-            getline(titleScreen, titleScreenOut);
-            char* charTSO = stringToChar(titleScreenOut);
-            ImGui::TextWrapped(charTSO);
+        FileLineOut = 1;
+        ReadFile(titleScreen, nullptr);
 
-            delete[] charTSO;
- 
+
         DisplayTitleButtons();
  
         if (titleScreen.is_open() == true) {

@@ -153,8 +153,11 @@
     <ClInclude Include="..\..\imgui_internal.h" />
     <ClInclude Include="..\..\backends\imgui_impl_dx11.h" />
     <ClInclude Include="..\..\backends\imgui_impl_win32.h" />
+    <ClInclude Include="AchievementsScreen.h" />
+    <ClInclude Include="global.h" />
     <ClInclude Include="MainMenuBar.h" />
     <ClInclude Include="newGameScreen.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="Saves\saveFileClass.h" />
     <ClInclude Include="settingsScreen.h" />
     <ClInclude Include="titleScreen.h" />
@@ -167,9 +170,11 @@
     <ClCompile Include="..\..\imgui_widgets.cpp" />
     <ClCompile Include="..\..\backends\imgui_impl_dx11.cpp" />
     <ClCompile Include="..\..\backends\imgui_impl_win32.cpp" />
+    <ClCompile Include="AchievementsScreen.cpp" />
+    <ClCompile Include="global.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainMenuBar.cpp" />
-    <ClCompile Include="NewGameScreen.cpp" />
+    <ClCompile Include="newGameScreen.cpp" />
     <ClCompile Include="Saves\saveFileClass.cpp" />
     <ClCompile Include="settingsScreen.cpp" />
     <ClCompile Include="titleScreen.cpp" />
@@ -178,12 +183,17 @@
     <None Include="..\..\misc\debuggers\imgui.natstepfilter" />
     <None Include="..\..\misc\debuggers\imgui.natvis" />
     <None Include="..\README.txt" />
+    <None Include="Scenes\Achievements Screen.scene" />
     <None Include="Scenes\Settings Screen.scene" />
     <None Include="Scenes\Title Screen.scene" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="ExceptionsList.txt" />
     <Text Include="FileTypeNaming.txt" />
+    <Text Include="Scenes\CurrentWindowIntergerNames.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="example_win32_directx11.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
