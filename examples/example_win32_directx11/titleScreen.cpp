@@ -6,7 +6,6 @@
 #include <settingsScreen.h>
 #include "global.h"
 
-
 //Declarations
 bool TSOpened = true;
 bool SettingsOpenedFromTitle = false;

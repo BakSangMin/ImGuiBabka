@@ -6,6 +6,7 @@
 #include <imgui_internal.h>
 #include "global.h"
 
+
 bool SSOpened = false;
 bool SSCloseClick = false;
 
