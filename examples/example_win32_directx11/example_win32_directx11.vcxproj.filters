@@ -16,6 +16,15 @@
     <Filter Include="sources\TitlePage">
       <UniqueIdentifier>{5101e1d1-bb7c-4b13-afd4-c432c839ebd5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="sources\NewGame">
+      <UniqueIdentifier>{7c176f88-95b7-450d-88a8-cca9d8d2d746}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sources\Player">
+      <UniqueIdentifier>{bdea7697-17cd-4784-8b33-1f145203adb3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sources\Saves">
+      <UniqueIdentifier>{9d408b40-d713-49e1-945b-cefdc2b28166}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\imconfig.h">
@@ -41,6 +50,12 @@
     </ClInclude>
     <ClInclude Include="settingsScreen.h">
       <Filter>sources\SettingsMenu</Filter>
+    </ClInclude>
+    <ClInclude Include="Saves\saveFileClass.h">
+      <Filter>sources\Saves</Filter>
+    </ClInclude>
+    <ClInclude Include="newGameScreen.h">
+      <Filter>sources\NewGame</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -71,14 +86,17 @@
     <ClCompile Include="MainMenuBar.cpp">
       <Filter>sources</Filter>
     </ClCompile>
-    <ClCompile Include="TitleBar.cpp">
-      <Filter>sources</Filter>
-    </ClCompile>
     <ClCompile Include="titleScreen.cpp">
       <Filter>sources\TitlePage</Filter>
     </ClCompile>
     <ClCompile Include="settingsScreen.cpp">
       <Filter>sources\SettingsMenu</Filter>
+    </ClCompile>
+    <ClCompile Include="Saves\saveFileClass.cpp">
+      <Filter>sources\Saves</Filter>
+    </ClCompile>
+    <ClCompile Include="NewGameScreen.cpp">
+      <Filter>sources\NewGame</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -49,6 +49,19 @@ void DisplayTitleButtons() {
         SettingsOpenedFromTitle = true;
         OpenSettingsScreen();
     }
+    StartBtnPos.y = StartBtnPos.y + 100/1.3f;
+    ImGui::SetCursorPos(StartBtnPos);
+    StartBtnSize.x = StartBtnSize.x / 2.05f;
+    StartBtnSize.y = StartBtnSize.y / 2;
+    if (ImGui::Button("Button", StartBtnSize)) {
+        
+    }
+    ImGui::SameLine(0.0f, 10.0f);
+    StartBtnPos.x = StartBtnPos.x + (300 - StartBtnSize.x);
+    ImGui::SetCursorPos(StartBtnPos);
+    if (ImGui::Button("Exit To Desktop", StartBtnSize)) {
+        exit(0);
+    }
 }
 void ReadTitleScreen() {
     ImGuiViewport* viewport = ImGui::GetMainViewport();
@@ -67,7 +80,7 @@ void ReadTitleScreen() {
             ImGuiWindowFlags_NoTitleBar);
 
         std::string titleScreenOut;
-        std::ifstream titleScreen("C:\\Users\\cdowd\\source\\repos\\Babushkas Babka Bakery\\examples\\example_win32_directx11\\Scenes\\Title Screen.scene");
+        std::ifstream titleScreen("Scenes\\Title Screen.scene");
         try {
             if (titleScreen.is_open() == false) {
                 throw 101;

@@ -154,6 +154,8 @@
     <ClInclude Include="..\..\backends\imgui_impl_dx11.h" />
     <ClInclude Include="..\..\backends\imgui_impl_win32.h" />
     <ClInclude Include="MainMenuBar.h" />
+    <ClInclude Include="newGameScreen.h" />
+    <ClInclude Include="Saves\saveFileClass.h" />
     <ClInclude Include="settingsScreen.h" />
     <ClInclude Include="titleScreen.h" />
   </ItemGroup>
@@ -167,8 +169,9 @@
     <ClCompile Include="..\..\backends\imgui_impl_win32.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainMenuBar.cpp" />
+    <ClCompile Include="NewGameScreen.cpp" />
+    <ClCompile Include="Saves\saveFileClass.cpp" />
     <ClCompile Include="settingsScreen.cpp" />
-    <ClCompile Include="TitleBar.cpp" />
     <ClCompile Include="titleScreen.cpp" />
   </ItemGroup>
   <ItemGroup>
